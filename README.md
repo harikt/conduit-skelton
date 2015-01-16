@@ -57,4 +57,25 @@ $dispatcher->setObject('blog', function () {
 
 You can make use of closure or [dependency injection container](https://github.com/auraphp/Aura.Di).
 
+## Added an authentication middleware
+
+Try `http://localhost:8000/admin` . If you are not logged in it will redirect you to `http://localhost:8000/login` page.
+
+```sql
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL COMMENT 'Username',
+  `email` varchar(255) NOT NULL COMMENT 'Email',
+  `password` varchar(255) NOT NULL COMMENT 'Password',
+  `fullname` varchar(255) NOT NULL COMMENT 'Full name',
+  `website` varchar(255) DEFAULT NULL COMMENT 'Website',
+  `active` int(11) NOT NULL COMMENT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
+
+Read how to use it [as standalone](http://securepasswords.info/aura-for-php/)
+
+A small [patch needed as reported over](https://github.com/phly/http/issues/19)
+
 Play and enjoy!
