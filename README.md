@@ -74,7 +74,11 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
 
-Read how to use it [as standalone](http://securepasswords.info/aura-for-php/)
+Environmental variables are used with the help of [vlucas/phpdotenv](https://github.com/vlucas/phpdotenv). Rename `env_dist` to `.env` and change database name, username and password according to yours.
+
+Read how to use [authentication as standalone](http://securepasswords.info/aura-for-php/)
+
+## Known issue
 
 A small [patch needed as reported over](https://github.com/phly/http/issues/19)
 
