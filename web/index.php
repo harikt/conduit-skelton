@@ -9,6 +9,7 @@ use Aura\Dispatcher\Dispatcher;
 use Phly\Conduit\Middleware;
 use Phly\Http\Server;
 use Conduit\Middleware\RouterMiddleware;
+use Conduit\Middleware\AuthenticationMiddleware;
 
 require dirname(__DIR__) . '/vendor/autoload.php';
 
@@ -27,10 +28,15 @@ require dirname(__DIR__) . '/config/di.php';
 require dirname(__DIR__) . '/config/routes.php';
 require dirname(__DIR__) . '/config/controllers.php';
 
-$routermiddleware = new RouterMiddleware($router, $dispatcher);
+$routerMiddleware = new RouterMiddleware($router, $dispatcher);
+
+$auth = $di->get('aura/auth:auth');
+$resume_service = $di->get('aura/auth:resume_service');
+$authMiddleware = new AuthenticationMiddleware($auth, $resume_service);
 
 $app = new Middleware();
-$app->pipe($routermiddleware);
+$app->pipe('/admin', $authMiddleware);
+$app->pipe($routerMiddleware);
 $server = Server::createServer($app, $_SERVER, $_GET, $_POST, $_COOKIE, $_FILES);
 
 $server->listen();

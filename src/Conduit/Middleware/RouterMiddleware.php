@@ -21,7 +21,8 @@ class RouterMiddleware
 
     public function handle(Request $request, Response $response, callable $next = null)
     {
-        $path = $request->getUrl()->path;
+        // https://github.com/phly/http/issues/19
+        $path = $request->getOriginalRequest()->getUrl()->path;
         $route = $this->router->match($path, $request->getServerParams());
         if (! $route) {
             return $next();
@@ -29,6 +30,6 @@ class RouterMiddleware
         $params = $route->params;
         $params['request'] = $request;
         $params['response'] = $response;
-        $this->dispatcher->__invoke($params);
+        $data = $this->dispatcher->__invoke($params);
     }
 }
