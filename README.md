@@ -47,9 +47,12 @@ $dispatcher->setObject('homepage', function ($response) {
 });
 
 $dispatcher->setObject('blog', $di->lazyNew('Controller\Blog'));
+/*
+// or without a DI container as
 $dispatcher->setObject('blog', function () {
     return new Controller\Blog();
 });
+*/
 ```
 
 You can make use of closure or [dependency injection container](https://github.com/auraphp/Aura.Di).
