@@ -1,4 +1,20 @@
 <?php
+use Aura\Di\Container;
+use Aura\Di\Factory;
+
+$di = new Container(new Factory);
+
+$di->params['Aura\Router\RouteCollection'] = array(
+    'route_factory' => $di->lazyNew('Aura\Router\RouteFactory'),
+);
+
+$di->params['Aura\Router\Router'] = array(
+    'routes' => $di->lazyNew('Aura\Router\RouteCollection'),
+    'generator' => $di->lazyNew('Aura\Router\Generator'),
+);
+
+$di->set('router', $di->lazyNew('Aura\Router\Router'));
+
 /**
  * Services
  */
@@ -122,3 +138,7 @@ $di->params['Twig_Environment'] = array (
     )
 );
 $di->set('twig', $di->lazyNew('Twig_Environment'));
+$di->params['Conduit\Middleware\AuthenticationMiddleware'] = array(
+    'auth' => $di->lazyGet('aura/auth:auth'),
+    'resume_service' => $di->lazyGet('aura/auth:resume_service'),
+);

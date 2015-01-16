@@ -1,4 +1,5 @@
 <?php
+$router = $di->get('router');
 $router->add('home', '/')
     ->addValues(array('controller' => 'homepage'))
 ;
