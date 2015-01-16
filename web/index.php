@@ -13,6 +13,8 @@ use Conduit\Middleware\AuthenticationMiddleware;
 
 require dirname(__DIR__) . '/vendor/autoload.php';
 
+Dotenv::load(dirname(__DIR__));
+
 $dispatcher = new Dispatcher;
 $dispatcher->setObjectParam('controller');
 $dispatcher->setMethodParam('action');

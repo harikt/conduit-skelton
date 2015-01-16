@@ -5,7 +5,8 @@
         "aura/dispatcher": "~2.0",
         "aura/di": "2.0",
         "aura/auth": "2.0.*@beta",
-        "twig/twig": "~1.0"
+        "twig/twig": "~1.0",
+        "vlucas/phpdotenv": "~1.1"
     },
     "autoload": {
         "psr-4": {

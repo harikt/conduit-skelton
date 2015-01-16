@@ -106,9 +106,9 @@ $di->set('aura/auth:adapter', $di->lazyNew('Aura\Auth\Adapter\PdoAdapter'));
 
 $di->set('db', $di->lazyNew('Pdo'));
 $di->params['Pdo'] = array(
-    'dsn' => 'mysql:dbname=auraauth;host=127.0.0.1',
-    'username' => 'root',
-    'passwd' => 'mysqlroot'
+    'dsn' => getenv('DB_DSN'),
+    'username' => getenv('DB_USERNAME'),
+    'passwd' => getenv('DB_PASSWORD'),
 );
 // Login controller
 $di->params['Controller\Login']['twig'] = $di->lazyGet('twig');
