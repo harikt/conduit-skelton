@@ -23,9 +23,9 @@ $router = new Router(
 
 $di = new Container(new Factory);
 
+require dirname(__DIR__) . '/config/di.php';
 require dirname(__DIR__) . '/config/routes.php';
 require dirname(__DIR__) . '/config/controllers.php';
-require dirname(__DIR__) . '/config/di.php';
 
 $routermiddleware = new RouterMiddleware($router, $dispatcher);
 
