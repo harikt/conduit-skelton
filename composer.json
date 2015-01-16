@@ -1,0 +1,13 @@
+{
+    "require": {
+        "phly/conduit": "~1.0-dev@dev",
+        "aura/router": "~2.2",
+        "aura/dispatcher": "~2.0",
+        "aura/di": "2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    }
+}
