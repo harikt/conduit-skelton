@@ -1,7 +1,9 @@
 <?php
-$dispatcher->setObject('homepage', function ($response) {
+$dispatcher = $di->get('dispatcher');
+$dispatcher->setObject('homepage', function ($response) use ($di) {
+    $twig = $di->get('twig');
     $response->setHeader('Content-Type', 'text/html');
-    $response->getBody()->write("<p>Home page in html. Please <a href=\"/blog\">Browse</a> and <a href=\"/blog/12\">view post</a></p>");
+    $response->getBody()->write($twig->render('home.html'));
 });
 
 $dispatcher->setObject('login', $di->lazyNew('Controller\Login'));

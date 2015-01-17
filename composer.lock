@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2504f228657c2b9e9c69c9bd6dfd810b",
+    "hash": "8a8850817df85e14be81af0f83157339",
     "packages": [
         {
             "name": "aura/auth",
-            "version": "2.0.0-beta2",
+            "version": "dev-develop-2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/auraphp/Aura.Auth.git",
-                "reference": "8010400aa090f52e9c4056399c018c4bb96d7fc1"
+                "reference": "238bcbcb0e502abef7fa87519fd8f34d2f1ac813"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/auraphp/Aura.Auth/zipball/8010400aa090f52e9c4056399c018c4bb96d7fc1",
-                "reference": "8010400aa090f52e9c4056399c018c4bb96d7fc1",
+                "url": "https://api.github.com/repos/auraphp/Aura.Auth/zipball/238bcbcb0e502abef7fa87519fd8f34d2f1ac813",
+                "reference": "238bcbcb0e502abef7fa87519fd8f34d2f1ac813",
                 "shasum": ""
             },
             "require": {
@@ -63,20 +63,20 @@
                 "auth",
                 "authenticate"
             ],
-            "time": "2014-11-07 15:41:31"
+            "time": "2015-01-02 14:29:47"
         },
         {
             "name": "aura/di",
-            "version": "2.0.0",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/auraphp/Aura.Di.git",
-                "reference": "65cc6553f174fabf373d8161129c47e09a8f31bc"
+                "reference": "68ffa4f76a2525ce3b7d211c09c71709a882556c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/auraphp/Aura.Di/zipball/65cc6553f174fabf373d8161129c47e09a8f31bc",
-                "reference": "65cc6553f174fabf373d8161129c47e09a8f31bc",
+                "url": "https://api.github.com/repos/auraphp/Aura.Di/zipball/68ffa4f76a2525ce3b7d211c09c71709a882556c",
+                "reference": "68ffa4f76a2525ce3b7d211c09c71709a882556c",
                 "shasum": ""
             },
             "require": {
@@ -115,7 +115,7 @@
                 "di",
                 "di container"
             ],
-            "time": "2014-10-04 20:10:36"
+            "time": "2014-11-06 18:13:34"
         },
         {
             "name": "aura/dispatcher",
@@ -220,6 +220,220 @@
                 "routing"
             ],
             "time": "2014-11-10 15:51:58"
+        },
+        {
+            "name": "aura/session",
+            "version": "dev-develop-2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/auraphp/Aura.Session.git",
+                "reference": "75887cca5cc31f9ce5a91f11f6681209fe8adebb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/auraphp/Aura.Session/zipball/75887cca5cc31f9ce5a91f11f6681209fe8adebb",
+                "reference": "75887cca5cc31f9ce5a91f11f6681209fe8adebb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "suggest": {
+                "ext-mcrypt": "Mcrypt generates the next best secure CSRF tokens.",
+                "ext-openssl": "OpenSSL generates the best secure CSRF tokens.",
+                "ircmaxell/random-lib": "A Library For Generating Secure Random Numbers"
+            },
+            "type": "library",
+            "extra": {
+                "aura": {
+                    "type": "library",
+                    "config": {
+                        "common": "Aura\\Session\\_Config\\Common"
+                    }
+                },
+                "branch-alias": {
+                    "dev-develop-2": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Aura\\Session\\": "src/",
+                    "Aura\\Session\\_Config\\": "config/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Aura.Session Contributors",
+                    "homepage": "https://github.com/auraphp/Aura.Session/contributors"
+                }
+            ],
+            "description": "Provides session management functionality, including lazy session starting, session segments, next-request-only (\"flash\") values, and CSRF tools.",
+            "homepage": "https://github.com/auraphp/Aura.Session",
+            "keywords": [
+                "csrf",
+                "flash",
+                "flash message",
+                "session",
+                "sessions"
+            ],
+            "time": "2015-01-05 21:30:11"
+        },
+        {
+            "name": "foa/auth-session-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/friendsofaura/FOA.Auth_Session_Bundle.git",
+                "reference": "ff67cf70cb0994cfe6bbd31a62bd8bc4a77bc3f6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/friendsofaura/FOA.Auth_Session_Bundle/zipball/ff67cf70cb0994cfe6bbd31a62bd8bc4a77bc3f6",
+                "reference": "ff67cf70cb0994cfe6bbd31a62bd8bc4a77bc3f6",
+                "shasum": ""
+            },
+            "require": {
+                "aura/auth": "2.0.*@dev",
+                "aura/session": "2.0.*@dev",
+                "ircmaxell/random-lib": "~1.0"
+            },
+            "require-dev": {
+                "aura/di": "~2.1"
+            },
+            "type": "library",
+            "extra": {
+                "aura": {
+                    "type": "bundle",
+                    "config": {
+                        "common": "FOA\\Auth_Session_Bundle\\_Config\\Common"
+                    }
+                },
+                "branch-alias": {
+                    "dev-master": "0.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "FOA\\Auth_Session_Bundle\\": "src/",
+                    "FOA\\Auth_Session_Bundle\\_Config\\": "config/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Hari KT",
+                    "email": "kthari85@gmail.com"
+                }
+            ],
+            "description": "Integration of Aura.Auth and Aura.Session",
+            "keywords": [
+                "Authentication",
+                "auth",
+                "session"
+            ],
+            "time": "2015-01-17 03:54:55"
+        },
+        {
+            "name": "ircmaxell/random-lib",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ircmaxell/RandomLib.git",
+                "reference": "13efa4368bb2ac88bb3b1459b487d907de4dbf7c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ircmaxell/RandomLib/zipball/13efa4368bb2ac88bb3b1459b487d907de4dbf7c",
+                "reference": "13efa4368bb2ac88bb3b1459b487d907de4dbf7c",
+                "shasum": ""
+            },
+            "require": {
+                "ircmaxell/security-lib": "1.0.*@dev",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "1.1.*",
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "RandomLib": "lib"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anthony Ferrara",
+                    "email": "ircmaxell@ircmaxell.com",
+                    "homepage": "http://blog.ircmaxell.com"
+                }
+            ],
+            "description": "A Library For Generating Secure Random Numbers",
+            "homepage": "https://github.com/ircmaxell/RandomLib",
+            "keywords": [
+                "cryptography",
+                "random",
+                "random-numbers",
+                "random-strings"
+            ],
+            "time": "2015-01-15 16:31:45"
+        },
+        {
+            "name": "ircmaxell/security-lib",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ircmaxell/SecurityLib.git",
+                "reference": "80934de3c482dcafb46b5756e59ebece082b6dc7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ircmaxell/SecurityLib/zipball/80934de3c482dcafb46b5756e59ebece082b6dc7",
+                "reference": "80934de3c482dcafb46b5756e59ebece082b6dc7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "1.1.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SecurityLib": "lib"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anthony Ferrara",
+                    "email": "ircmaxell@ircmaxell.com",
+                    "homepage": "http://blog.ircmaxell.com"
+                }
+            ],
+            "description": "A Base Security Library",
+            "homepage": "https://github.com/ircmaxell/PHP-SecurityLib",
+            "time": "2013-04-30 18:00:34"
         },
         {
             "name": "phly/conduit",
@@ -484,17 +698,17 @@
         },
         {
             "name": "zendframework/zend-escaper",
-            "version": "2.3.3",
+            "version": "2.3.4",
             "target-dir": "Zend/Escaper",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/Component_ZendEscaper.git",
-                "reference": "c24949840766a544489bfc303714e1f332341010"
+                "reference": "67c8f76ff6d899a5619a4ab27c3b46ed3ae743fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/Component_ZendEscaper/zipball/c24949840766a544489bfc303714e1f332341010",
-                "reference": "c24949840766a544489bfc303714e1f332341010",
+                "url": "https://api.github.com/repos/zendframework/Component_ZendEscaper/zipball/67c8f76ff6d899a5619a4ab27c3b46ed3ae743fc",
+                "reference": "67c8f76ff6d899a5619a4ab27c3b46ed3ae743fc",
                 "shasum": ""
             },
             "require": {
@@ -521,7 +735,7 @@
                 "escaper",
                 "zf2"
             ],
-            "time": "2014-09-16 22:58:11"
+            "time": "2015-01-14 16:44:17"
         }
     ],
     "packages-dev": [],
@@ -529,7 +743,9 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "phly/conduit": 20,
-        "aura/auth": 10
+        "aura/auth": 20,
+        "aura/session": 20,
+        "foa/auth-session-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
