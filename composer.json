@@ -3,14 +3,17 @@
         "phly/conduit": "~1.0-dev@dev",
         "aura/router": "~2.2",
         "aura/dispatcher": "~2.0",
-        "aura/di": "2.0",
-        "aura/auth": "2.0.*@beta",
+        "aura/di": "~2.0",
         "twig/twig": "~1.0",
-        "vlucas/phpdotenv": "~1.1"
+        "vlucas/phpdotenv": "~1.1",
+        "aura/auth": "2.0.*@dev",
+        "aura/session": "2.0.*@dev",
+        "foa/auth-session-bundle": "0.1.*@dev"
     },
     "autoload": {
         "psr-4": {
-            "": "src/"
+            "": "src/",
+            "Skelton\\_Config\\": "config/"
         }
     }
 }
