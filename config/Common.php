@@ -35,6 +35,9 @@ class Common extends Config
         // Login controller
         $di->params['Controller\Login']['twig'] = $di->lazyGet('twig');
 
+        // Blog controller
+        $di->params['Controller\Blog']['twig'] = $di->lazyGet('twig');
+
         // Twig
         $di->params['Twig_Loader_Filesystem']['paths'] = array(dirname(__DIR__) . '/templates');
         $di->params['Twig_Environment'] = array (
@@ -57,6 +60,8 @@ class Common extends Config
             'router' => $di->lazyGet('router'),
             'dispatcher' => $di->lazyGet('dispatcher'),
         );
+
+        $di->set('auth_middleware', $di->lazyNew('Conduit\Middleware\AuthenticationMiddleware'));
     }
 
     public function modify(Container $di)

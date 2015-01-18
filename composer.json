@@ -1,6 +1,13 @@
 {
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/harikt/phly-http"
+        }
+    ],
     "require": {
-        "phly/conduit": "~1.0-dev@dev",
+        "phly/conduit": "0.8.*",
+        "phly/http": "dev-url as 0.7.2",
         "aura/router": "~2.2",
         "aura/dispatcher": "~2.0",
         "aura/di": "~2.0",
@@ -8,7 +15,9 @@
         "vlucas/phpdotenv": "~1.1",
         "aura/auth": "2.0.*@dev",
         "aura/session": "2.0.*@dev",
-        "foa/auth-session-bundle": "0.1.*@dev"
+        "foa/auth-session-bundle": "0.1.*@dev",
+        "foa/filter-input-bundle": "~1.1",
+        "foa/filter-intl-bundle": "~1.1"
     },
     "autoload": {
         "psr-4": {
