@@ -21,6 +21,6 @@ class Blog
     public function view($request, $response, $id)
     {
         $response->setHeader('Content-Type', 'text/html');
-        $response->getBody()->write($response->getBody()->write($this->twig->render('blog.view.html', array('id' => $id))));
+        $response->getBody()->write($this->twig->render('blog.view.html', array('id' => $id)));
     }
 }
