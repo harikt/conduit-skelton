@@ -11,7 +11,7 @@ $router->add('blog.browse', '/blog')
     ))
 ;
 
-$router->add('blog.view', '/blog/{id}')
+$router->add('blog.view', '/blog/view/{id}')
     ->addValues(array(
         'controller' => 'blog',
         'action' => 'view'

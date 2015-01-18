@@ -1,20 +1,26 @@
 <?php
 namespace Controller;
 
-use Zend\Escaper\Escaper;
+use Twig_Environment;
 
 class Blog
 {
+    private $twig;
+
+    public function __construct(Twig_Environment $twig)
+    {
+        $this->twig = $twig;
+    }
+
     public function browse($request, $response)
     {
         $response->setHeader('Content-Type', 'text/html');
-        $response->getBody()->write("<p>I am from browse action</p>");
+        $response->getBody()->write($this->twig->render('blog.browse.html'));
     }
 
     public function view($request, $response, $id)
     {
-        $escaper = new Escaper();
         $response->setHeader('Content-Type', 'text/html');
-        $response->getBody()->write("<p>I am viewing {$escaper->escapeHtml($id)} post.</p>");
+        $response->getBody()->write($response->getBody()->write($this->twig->render('blog.view.html', array('id' => $id))));
     }
 }

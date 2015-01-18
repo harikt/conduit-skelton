@@ -12,7 +12,8 @@ $dispatcher->setObject('logout', $di->lazyNew('Controller\Logout'));
 
 $dispatcher->setObject('blog', $di->lazyNew('Controller\Blog'));
 
-$dispatcher->setObject('admin', function ($response) {
+$dispatcher->setObject('admin', function ($response) use ($di) {
+    $twig = $di->get('twig');
     $response->setHeader('Content-Type', 'text/html');
-    $response->getBody()->write("<p>Admin <a href=\"/logout\">Logout</a></p>");
+    $response->getBody()->write($twig->render('admin.html'));
 });
