@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "46943590ed69e37f3a35e7a54cdd1572",
+    "hash": "037f2c6a4399089d6d2a49f468f1d3f6",
     "packages": [
         {
             "name": "aura/auth",
@@ -169,23 +169,22 @@
         },
         {
             "name": "aura/filter",
-            "version": "1.0.2",
+            "version": "dev-develop-2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/auraphp/Aura.Filter.git",
-                "reference": "e9232cb84defcf6b5dc2d8b09d4b33b9ce471b47"
+                "reference": "e02b8b54b3d2f2c185058b7b0414bf159ba6d229"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/auraphp/Aura.Filter/zipball/e9232cb84defcf6b5dc2d8b09d4b33b9ce471b47",
-                "reference": "e9232cb84defcf6b5dc2d8b09d4b33b9ce471b47",
+                "url": "https://api.github.com/repos/auraphp/Aura.Filter/zipball/e02b8b54b3d2f2c185058b7b0414bf159ba6d229",
+                "reference": "e02b8b54b3d2f2c185058b7b0414bf159ba6d229",
                 "shasum": ""
             },
             "require": {
-                "aura/installer-default": "1.0.*",
-                "php": ">=5.4.0"
+                "php": ">=5.3.0"
             },
-            "type": "aura-package",
+            "type": "library",
             "extra": {
                 "aura": {
                     "type": "library",
@@ -194,15 +193,13 @@
                     }
                 },
                 "branch-alias": {
-                    "dev-develop": "1.0.x-dev"
+                    "dev-develop-2": "2.0.x-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Aura\\Filter": "src/"
-                },
                 "psr-4": {
-                    "Aura\\Filter\\_Config\\": "config/"
+                    "Aura\\Filter\\_Config\\": "config/",
+                    "Aura\\Filter\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -211,243 +208,20 @@
             ],
             "authors": [
                 {
-                    "name": "Paul M. Jones",
-                    "email": "pmjones88@gmail.com",
-                    "homepage": "http://paul-m-jones.com"
-                },
-                {
-                    "name": "Hari KT",
-                    "email": "kthari85@gmail.com",
-                    "homepage": "http://harikt.com"
-                },
-                {
-                    "name": "Aura.Filter Contributors",
+                    "name": "Aura Contributors",
                     "homepage": "https://github.com/auraphp/Aura.Filter/contributors"
-                },
-                {
-                    "name": "Pascal Borreli",
-                    "email": "pascal@borreli.com"
-                },
-                {
-                    "name": "Mapthegod",
-                    "email": "nakymaton.hdc@gmail.com"
-                },
-                {
-                    "name": "Benjamin Geissler",
-                    "email": "benjamin.geissler@gmail.com"
-                },
-                {
-                    "name": "Daniel Haaker",
-                    "email": "d.haaker@gmail.com"
-                },
-                {
-                    "name": "chrissound",
-                    "email": "chris@soundshare.co.uk"
                 }
             ],
-            "description": "The Aura Filter package provides tools to validate and sanitize data objects and arrays.",
-            "homepage": "http://auraphp.com/Aura.Filter",
+            "description": "Validate and sanitize objects and arrays.",
+            "homepage": "http://auraphp.github.com/Aura.Filter",
             "keywords": [
                 "filter",
                 "sanitize",
-                "validate"
+                "validate",
+                "validation",
+                "validator"
             ],
-            "time": "2014-08-24 00:00:00"
-        },
-        {
-            "name": "aura/input",
-            "version": "1.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/auraphp/Aura.Input.git",
-                "reference": "f3c567bc12c7a7d5195a5ad659c1f29ec481378e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/auraphp/Aura.Input/zipball/f3c567bc12c7a7d5195a5ad659c1f29ec481378e",
-                "reference": "f3c567bc12c7a7d5195a5ad659c1f29ec481378e",
-                "shasum": ""
-            },
-            "require": {
-                "aura/installer-default": "1.*",
-                "php": ">=5.4.0"
-            },
-            "type": "aura-package",
-            "extra": {
-                "aura": {
-                    "type": "library",
-                    "config": {
-                        "common": "Aura\\Input\\_Config\\Common"
-                    }
-                },
-                "branch-alias": {
-                    "dev-develop": "1.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Aura\\Input": "src/"
-                },
-                "psr-4": {
-                    "Aura\\Input\\_Config\\": "config/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-2-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Paul M. Jones",
-                    "email": "pmjones88@gmail.com",
-                    "homepage": "http://paul-m-jones.com"
-                },
-                {
-                    "name": "Hari KT",
-                    "email": "kthari85@gmail.com",
-                    "homepage": "http://harikt.com"
-                },
-                {
-                    "name": "Aura.Input Contributors",
-                    "homepage": "https://github.com/auraphp/Aura.Input/contributors"
-                },
-                {
-                    "name": "Akihito Koriyama",
-                    "email": "akihito.koriyama@gmail.com"
-                },
-                {
-                    "name": "Daniel Haaker",
-                    "email": "d.haaker@gmail.com"
-                }
-            ],
-            "description": "This package contains tools to describe and filter user inputs from an HTML form, including sub-forms/sub-fieldsets, fieldset collections, an interface for injecting custom filter systems, and CSRF protection. Note that this package does not include output functionality, although the \"hints\" provided by the Form object can be used with any presentation system to generate an HTML form.",
-            "homepage": "http://auraphp.com/Aura.Input",
-            "keywords": [
-                "field",
-                "form",
-                "html",
-                "input"
-            ],
-            "time": "2014-08-24 00:00:00"
-        },
-        {
-            "name": "aura/installer-default",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/auraphp/installer-default.git",
-                "reference": "52f8de3670cc1ef45a916f40f732937436d028c8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/auraphp/installer-default/zipball/52f8de3670cc1ef45a916f40f732937436d028c8",
-                "reference": "52f8de3670cc1ef45a916f40f732937436d028c8",
-                "shasum": ""
-            },
-            "type": "composer-installer",
-            "extra": {
-                "class": "Aura\\Composer\\DefaultInstaller"
-            },
-            "autoload": {
-                "psr-0": {
-                    "Aura\\Composer\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-2-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Paul M. Jones",
-                    "email": "pmjones88@gmail.com",
-                    "homepage": "http://paul-m-jones.com"
-                }
-            ],
-            "description": "Installs Aura packages using the Composer defaults.",
-            "keywords": [
-                "aura",
-                "installer"
-            ],
-            "time": "2012-11-26 21:35:57"
-        },
-        {
-            "name": "aura/intl",
-            "version": "1.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/auraphp/Aura.Intl.git",
-                "reference": "c5fe620167550ad6fa77dd3570fba2efc77a2a21"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/auraphp/Aura.Intl/zipball/c5fe620167550ad6fa77dd3570fba2efc77a2a21",
-                "reference": "c5fe620167550ad6fa77dd3570fba2efc77a2a21",
-                "shasum": ""
-            },
-            "require": {
-                "aura/installer-default": "1.0.*",
-                "php": ">=5.4.0"
-            },
-            "type": "aura-package",
-            "extra": {
-                "aura": {
-                    "type": "library",
-                    "config": {
-                        "common": "Aura\\Intl\\_Config\\Common"
-                    }
-                },
-                "branch-alias": {
-                    "dev-develop": "1.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Aura\\Intl": "src/"
-                },
-                "psr-4": {
-                    "Aura\\Intl\\_Config\\": "config/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-2-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Paul M. Jones",
-                    "email": "pmjones88@gmail.com",
-                    "homepage": "http://paul-m-jones.com"
-                },
-                {
-                    "name": "Aura.Intl Contributors",
-                    "homepage": "https://github.com/auraphp/Aura.Intl/contributors"
-                },
-                {
-                    "name": "Pascal Borreli",
-                    "email": "pascal@borreli.com"
-                },
-                {
-                    "name": "Mapthegod",
-                    "email": "mapthegod@gmail.com"
-                },
-                {
-                    "name": "José Lorenzo Rodríguez",
-                    "email": "jose.zap@gmail.com"
-                }
-            ],
-            "description": "The Aura.Intl package provides internationalization (I18N) tools, specifically\npackage-oriented per-locale message translation.",
-            "homepage": "http://auraphp.com/Aura.Intl",
-            "keywords": [
-                "g11n",
-                "globalization",
-                "i18n",
-                "internationalization",
-                "intl",
-                "l10n",
-                "localization"
-            ],
-            "time": "2014-08-24 00:00:00"
+            "time": "2015-01-14 23:14:33"
         },
         {
             "name": "aura/router",
@@ -621,125 +395,6 @@
                 "session"
             ],
             "time": "2015-01-17 03:54:55"
-        },
-        {
-            "name": "foa/filter-input-bundle",
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/friendsofaura/FOA.Filter_Input_Bundle.git",
-                "reference": "394489aaeb27c7a60a534d493517acf585dea358"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/friendsofaura/FOA.Filter_Input_Bundle/zipball/394489aaeb27c7a60a534d493517acf585dea358",
-                "reference": "394489aaeb27c7a60a534d493517acf585dea358",
-                "shasum": ""
-            },
-            "require": {
-                "aura/filter": ">=1.0.1,<=2.0.0",
-                "aura/input": ">=1.1.1,<=2.0.0",
-                "php": ">=5.4.0"
-            },
-            "type": "library",
-            "extra": {
-                "aura": {
-                    "type": "bundle",
-                    "config": {
-                        "common": [
-                            "FOA\\Filter_Input_Bundle\\_Config\\Common"
-                        ]
-                    }
-                },
-                "branch-alias": {
-                    "dev-master": "1.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "FOA\\Filter_Input_Bundle\\": "src/",
-                    "FOA\\Filter_Input_Bundle\\_Config\\": "config/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-2-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "FOA Contributors",
-                    "homepage": "https://github.com/friendsofaura/FOA.Filter_Input_Bundle/contributors"
-                }
-            ],
-            "description": "Integration bundle for Aura.Input with Aura.Filter",
-            "homepage": "https://github.com/friendsofaura/FOA.Filter_Input_Bundle",
-            "keywords": [
-                "filter",
-                "form",
-                "input",
-                "sanitize",
-                "validate"
-            ],
-            "time": "2014-08-17 03:12:52"
-        },
-        {
-            "name": "foa/filter-intl-bundle",
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/friendsofaura/FOA.Filter_Intl_Bundle.git",
-                "reference": "edb503ff5ce9eac5f7a1118f02a5758d953c590c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/friendsofaura/FOA.Filter_Intl_Bundle/zipball/edb503ff5ce9eac5f7a1118f02a5758d953c590c",
-                "reference": "edb503ff5ce9eac5f7a1118f02a5758d953c590c",
-                "shasum": ""
-            },
-            "require": {
-                "aura/filter": ">=1.0.1,<=2.0.0",
-                "aura/intl": ">=1.1.0,<=2.0.0",
-                "php": ">=5.4.0"
-            },
-            "type": "library",
-            "extra": {
-                "aura": {
-                    "type": "bundle",
-                    "config": {
-                        "common": [
-                            "FOA\\Filter_Intl_Bundle\\_Config\\Common"
-                        ]
-                    }
-                },
-                "branch-alias": {
-                    "dev-master": "1.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "FOA\\Filter_Intl_Bundle\\": "src/",
-                    "FOA\\Filter_Intl_Bundle\\_Config\\": "config/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-2-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "FOA Contributors",
-                    "homepage": "https://github.com/harikt/FOA.Filter_Intl_Bundle/contributors"
-                }
-            ],
-            "description": "Integration bundle for Aura.Filter with Aura.Intl",
-            "homepage": "https://github.com/friendsofaura/FOA.Filter_Intl_Bundle",
-            "keywords": [
-                "filter",
-                "intl",
-                "sanitize",
-                "validate"
-            ],
-            "time": "2014-08-17 03:16:51"
         },
         {
             "name": "ircmaxell/random-lib",
@@ -1164,7 +819,8 @@
         "phly/http": 20,
         "aura/auth": 20,
         "aura/session": 20,
-        "foa/auth-session-bundle": 20
+        "foa/auth-session-bundle": 20,
+        "aura/filter": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

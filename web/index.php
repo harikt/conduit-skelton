@@ -18,11 +18,6 @@ $config_classes = array(
     'Aura\Auth\_Config\Common',
     'Aura\Session\_Config\Common',
     'FOA\Auth_Session_Bundle\_Config\Common',
-    'Aura\Input\_Config\Common',
-    'Aura\Intl\_Config\Common',
-    'Aura\Filter\_Config\Common',
-    'FOA\Filter_Input_Bundle\_Config\Common',
-    'FOA\Filter_Intl_Bundle\_Config\Common',
     'Skelton\_Config\Common'
 );
 

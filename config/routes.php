@@ -43,3 +43,21 @@ $router->add('admin', '/admin')
         'controller' => 'admin',
     ))
 ;
+
+$router->addGet('contact', '/contact')
+    ->addValues(array(
+        'controller' => 'contact',
+    ))
+;
+
+$router->addPost('contact.post', '/contact')
+    ->addValues(array(
+        'controller' => 'contact.post',
+    ))
+;
+
+$router->addGet('thankyou', '/thankyou')
+    ->addValues(array(
+        'controller' => 'thankyou',
+    ))
+;
