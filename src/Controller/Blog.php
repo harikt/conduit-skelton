@@ -14,13 +14,13 @@ class Blog
 
     public function browse($request, $response)
     {
-        $response->setHeader('Content-Type', 'text/html');
-        $response->getBody()->write($this->twig->render('blog.browse.html'));
+        $response->withHeader('Content-Type', 'text/html')
+            ->write($this->twig->render('blog.browse.html'));
     }
 
     public function view($request, $response, $id)
     {
-        $response->setHeader('Content-Type', 'text/html');
-        $response->getBody()->write($this->twig->render('blog.view.html', array('id' => $id)));
+        $response->withHeader('Content-Type', 'text/html')
+            ->write($this->twig->render('blog.view.html', array('id' => $id)));
     }
 }

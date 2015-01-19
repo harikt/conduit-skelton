@@ -1,13 +1,6 @@
 {
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/harikt/phly-http"
-        }
-    ],
     "require": {
-        "phly/conduit": "0.8.*",
-        "phly/http": "dev-url as 0.7.2",
+        "phly/conduit": "0.9.*",
         "aura/router": "~2.2",
         "aura/dispatcher": "~2.0",
         "aura/di": "~2.0",

@@ -22,6 +22,6 @@ class Logout
     public function __invoke(Response $response)
     {
         $this->logout_service->logout($this->auth);
-        $response->setHeader('Location', '/login');
+        $response->withHeader('Location', '/login');
     }
 }

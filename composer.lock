@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "037f2c6a4399089d6d2a49f468f1d3f6",
+    "hash": "9f8e3b8829e3e9091435e14fec0d187e",
     "packages": [
         {
             "name": "aura/auth",
@@ -493,22 +493,22 @@
         },
         {
             "name": "phly/conduit",
-            "version": "0.8.2",
+            "version": "0.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phly/conduit.git",
-                "reference": "45bfb27aad5bfbe6b271401063dab03f9bb07e07"
+                "reference": "6514e247303be576d226d7e29a1102259a88932f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phly/conduit/zipball/45bfb27aad5bfbe6b271401063dab03f9bb07e07",
-                "reference": "45bfb27aad5bfbe6b271401063dab03f9bb07e07",
+                "url": "https://api.github.com/repos/phly/conduit/zipball/6514e247303be576d226d7e29a1102259a88932f",
+                "reference": "6514e247303be576d226d7e29a1102259a88932f",
                 "shasum": ""
             },
             "require": {
-                "phly/http": "~0.7.0@dev",
+                "phly/http": "~0.8.0",
                 "php": ">=5.4.8",
-                "psr/http-message": "~0.5.1@dev",
+                "psr/http-message": "~0.6.0",
                 "zendframework/zend-escaper": "~2.3@stable"
             },
             "require-dev": {
@@ -544,25 +544,25 @@
                 "http",
                 "middleware"
             ],
-            "time": "2014-11-05 23:13:41"
+            "time": "2015-01-19 01:33:09"
         },
         {
             "name": "phly/http",
-            "version": "dev-url",
+            "version": "0.8.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/harikt/phly-http.git",
-                "reference": "78d2602c12c3444d3c66ec6b8908ed4c9d23b0ff"
+                "url": "https://github.com/phly/http.git",
+                "reference": "5138f5c05ab75a54cdd147218d5d1479e54f1332"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harikt/phly-http/zipball/78d2602c12c3444d3c66ec6b8908ed4c9d23b0ff",
-                "reference": "78d2602c12c3444d3c66ec6b8908ed4c9d23b0ff",
+                "url": "https://api.github.com/repos/phly/http/zipball/5138f5c05ab75a54cdd147218d5d1479e54f1332",
+                "reference": "5138f5c05ab75a54cdd147218d5d1479e54f1332",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4.8",
-                "psr/http-message": "~0.5.1"
+                "psr/http-message": "~0.6.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "3.7.*",
@@ -580,14 +580,7 @@
                     "Phly\\Http\\": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "PhlyTest\\Http\\": "test/"
-                },
-                "files": [
-                    "test/TestAsset/Functions.php"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-2-Clause"
             ],
@@ -603,24 +596,20 @@
             "keywords": [
                 "http"
             ],
-            "support": {
-                "issues": "https://github.com/phly/http/issues",
-                "source": "https://github.com/phly/http"
-            },
-            "time": "2015-01-16 14:41:07"
+            "time": "2015-01-19 01:16:34"
         },
         {
             "name": "psr/http-message",
-            "version": "0.5.1",
+            "version": "0.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-message.git",
-                "reference": "18619eee10ecf266bafe048e5a2922fa20938498"
+                "reference": "70d7c442866f109cbda7f9dea8938e47fc3cc20c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-message/zipball/18619eee10ecf266bafe048e5a2922fa20938498",
-                "reference": "18619eee10ecf266bafe048e5a2922fa20938498",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/70d7c442866f109cbda7f9dea8938e47fc3cc20c",
+                "reference": "70d7c442866f109cbda7f9dea8938e47fc3cc20c",
                 "shasum": ""
             },
             "type": "library",
@@ -653,7 +642,7 @@
                 "request",
                 "response"
             ],
-            "time": "2014-11-04 14:03:01"
+            "time": "2015-01-18 23:26:37"
         },
         {
             "name": "twig/twig",
@@ -806,17 +795,9 @@
         }
     ],
     "packages-dev": [],
-    "aliases": [
-        {
-            "alias": "0.7.2",
-            "alias_normalized": "0.7.2.0",
-            "version": "dev-url",
-            "package": "phly/http"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "phly/http": 20,
         "aura/auth": 20,
         "aura/session": 20,
         "foa/auth-session-bundle": 20,

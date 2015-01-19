@@ -5,7 +5,9 @@ use Twig_Environment;
 use Aura\Auth\Auth;
 use Aura\Auth\Service\ResumeService;
 use Aura\Auth\Service\LoginService;
-use Psr\Http\Message\OutgoingResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\ResponseInterface;
+
 
 class Login
 {
@@ -22,13 +24,13 @@ class Login
         $this->twig = $twig;
     }
 
-    public function get(Response $response)
+    public function get(ResponseInterface $response)
     {
-        $response->setHeader('Content-Type', 'text/html');
-        $response->getBody()->write($this->twig->render('login.html'));
+        $response->withHeader('Content-Type', 'text/html')
+            ->write($this->twig->render('login.html'));
     }
 
-    public function post($request,Response $response)
+    public function post(ServerRequestInterface $request,ResponseInterface $response)
     {
         $data = $request->getBodyParams();
         $this->login_service->login($this->auth, array(
@@ -36,8 +38,9 @@ class Login
             'password' => $data['password'],
         ));
         if ($this->auth->isValid()) {
-            $response->setHeader('Content-Type', 'text/html');
-            $response->setHeader('Location', '/admin');
+            $response
+                ->withStatus(302)
+                ->withHeader('Location', '/login');
         } else {
             $this->get($response);
         }
