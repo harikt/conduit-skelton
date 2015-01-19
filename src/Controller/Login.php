@@ -44,5 +44,6 @@ class Login
         } else {
             $this->get($response);
         }
+        return $response;
     }
 }

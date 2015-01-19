@@ -21,7 +21,6 @@ class RouterMiddleware
 
     public function handle(ServerRequestInterface $request, ResponseInterface $response, callable $next = null)
     {
-        // https://github.com/phly/http/issues/19
         $path = $request->getUri()->getPath();
         $route = $this->router->match($path, $request->getServerParams());
         if (! $route) {
@@ -30,6 +29,10 @@ class RouterMiddleware
         $params = $route->params;
         $params['request'] = $request;
         $params['response'] = $response;
-        $data = $this->dispatcher->__invoke($params);
+        $newresponse = $this->dispatcher->__invoke($params);
+        if ($newresponse instanceof ResponseInterface) {
+            $response = $newresponse;
+        }
+        return $next($request, $response);
     }
 }

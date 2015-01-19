@@ -20,13 +20,11 @@ class AuthenticationMiddleware extends BaseMiddleware
 
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next = null)
     {
-        if ($this->auth->isValid()) {
-            $next();
-        } else {
-            $response
+        if (! $this->auth->isValid()) {
+            $response = $response
                 ->withStatus(401)
                 ->withHeader('Location', '/login');
         }
-        $next($request, $response);
+        return $next($request, $response);
     }
 }
