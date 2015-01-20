@@ -17,6 +17,7 @@ $config_classes = array(
     'Aura\Router\_Config\Common',
     'Aura\Auth\_Config\Common',
     'Aura\Session\_Config\Common',
+    'Aura\Accept\_Config\Common',
     'FOA\Auth_Session_Bundle\_Config\Common',
     'Skelton\_Config\Common'
 );
@@ -36,7 +37,8 @@ $app = new Middleware();
 $app->pipe('/admin', $di->get('auth_middleware'));
 $app->pipe('/blog/edit', $di->get('auth_middleware'));
 $app->pipe('/blog/delete', $di->get('auth_middleware'));
-$app->pipe($di->newInstance('Conduit\Middleware\RouterMiddleware'));
+$app->pipe($di->get('negotiation_middleware'));
+$app->pipe($di->get('router_middleware'));
 $server = Server::createServer($app, $_SERVER, $_GET, $_POST, $_COOKIE, $_FILES);
 
 $server->listen();

@@ -9,7 +9,8 @@
         "aura/auth": "2.0.*@dev",
         "aura/session": "2.0.*@dev",
         "foa/auth-session-bundle": "0.1.*@dev",
-        "aura/filter": "2.0.*@dev"
+        "aura/filter": "2.0.*@dev",
+        "aura/accept": "~2.0"
     },
     "autoload": {
         "psr-4": {
