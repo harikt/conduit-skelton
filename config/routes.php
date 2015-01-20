@@ -18,21 +18,21 @@ $router->add('blog.view', '/blog/view/{id}')
     ))
 ;
 
-$router->addGet('login', '/login/')
+$router->addGet('login', '/login')
     ->addValues(array(
         'controller' => 'login',
         'action' => 'get'
     ))
 ;
 
-$router->addPost('login.post', '/login/')
+$router->addPost('login.post', '/login')
     ->addValues(array(
         'controller' => 'login',
         'action' => 'post'
     ))
 ;
 
-$router->add('logout', '/logout/')
+$router->add('logout', '/logout')
     ->addValues(array(
         'controller' => 'logout',
     ))

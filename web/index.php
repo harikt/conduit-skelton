@@ -1,9 +1,12 @@
 <?php
 use Aura\Di\ContainerBuilder;
-use Conduit\Middleware\RouterMiddleware;
-use Conduit\Middleware\AuthenticationMiddleware;
 use Phly\Conduit\Middleware;
+use Phly\Conduit\FinalHandler;
+use Phly\Conduit\Http\Request as RequestDecorator;
+use Phly\Conduit\Http\Response as ResponseDecorator;
+use Phly\Http\Response;
 use Phly\Http\Server;
+use Phly\Http\ServerRequestFactory;
 
 require dirname(__DIR__) . '/vendor/autoload.php';
 
@@ -39,6 +42,16 @@ $app->pipe('/blog/edit', $di->get('auth_middleware'));
 $app->pipe('/blog/delete', $di->get('auth_middleware'));
 $app->pipe($di->get('negotiation_middleware'));
 $app->pipe($di->get('router_middleware'));
-$server = Server::createServer($app, $_SERVER, $_GET, $_POST, $_COOKIE, $_FILES);
-
-$server->listen();
+// $server = Server::createServer($app, $_SERVER, $_GET, $_POST, $_COOKIE, $_FILES);
+// $server->listen();
+$request  = new RequestDecorator(ServerRequestFactory::fromGlobals(
+    $_SERVER,
+    $_GET,
+    $_POST,
+    $_COOKIE,
+    $_FILES
+));
+$response = new ResponseDecorator(new Response());
+$server   = new Server($app, $request, $response);
+$final = new FinalHandler([ 'env' => 'dev' ]);
+$server->listen($final);

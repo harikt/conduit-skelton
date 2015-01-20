@@ -19,7 +19,7 @@ class RouterMiddleware
         $this->dispatcher = $dispatcher;
     }
 
-    public function handle(ServerRequestInterface $request, ResponseInterface $response, callable $next = null)
+    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next = null)
     {
         $path = $request->getUri()->getPath();
         $route = $this->router->match($path, $request->getServerParams());

@@ -3,7 +3,7 @@
 {% if error %}
     <div class="error">{{ error }}</div>
 {% endif %}
-    <form action="/login/" method="post">
+    <form action="/login" method="post">
         <div class="form-group">
             <label for="username">Username</label>
             <input type="text" name="username" id="username" value="{{ username }}" />

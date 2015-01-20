@@ -22,7 +22,8 @@ class Logout
     public function __invoke(ResponseInterface $response)
     {
         $this->logout_service->logout($this->auth);
-        $response = $response->withHeader('Location', '/login/');
-        return $response;
+        return $response
+            ->withStatus(302)
+            ->withHeader('Location', '/login');
     }
 }

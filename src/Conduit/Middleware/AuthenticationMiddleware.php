@@ -25,7 +25,7 @@ class AuthenticationMiddleware extends BaseMiddleware
         }
         $response = $response
             ->withStatus(401)
-            ->withHeader('Location', '/login/');
+            ->withHeader('Location', '/login');
         return $response;
     }
 }

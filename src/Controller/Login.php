@@ -38,7 +38,7 @@ class Login
         if ($this->auth->isValid()) {
             $response = $response
                 ->withStatus(302)
-                ->withHeader('Location', '/admin/');
+                ->withHeader('Location', '/admin');
             return $response;
         }
         return $this->get($response);
