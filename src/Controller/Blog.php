@@ -14,7 +14,24 @@ class Blog
 
     public function browse($request, $response)
     {
-        return $this->twig->render('blog.browse.html');
+        $available = array(
+            'application/json' => 'json',
+            'text/html' => 'html',
+        );
+        $posts = array(
+            array(
+                'title' => 'First post',
+                'content' => 'First post body',
+                'author' => 'Hari KT',
+            ),
+            array(
+                'title' => 'Second post',
+                'content' => 'Second post body',
+                'author' => 'Paul M Jones',
+            ),
+        );
+        $format = isset($available[$response->getHeader('Content-Type')]) ? $available[$response->getHeader('Content-Type')] : 'html';
+        return $this->twig->render('blog.browse.' . $format, array('posts' => $posts));
     }
 
     public function view($request, $response, $id)
