@@ -1,4 +1,10 @@
 {% extends "layout.html" %}
 {% block content %}
-  <p>List of blog posts. <a href="/blog/view/23">View a post</a></p>
+  {% for post in posts %}
+    <div>
+      <h2>{{post.title}}</h2>
+      <div>{{post.content}}</div>
+      <div>{{post.author}}</div>
+    </div>
+  {% endfor %}
 {% endblock %}

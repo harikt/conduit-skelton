@@ -38,7 +38,7 @@ $router->add('logout', '/logout')
     ))
 ;
 
-$router->add('admin', '/admin')
+$router->add('admin', '/admin/')
     ->addValues(array(
         'controller' => 'admin',
     ))

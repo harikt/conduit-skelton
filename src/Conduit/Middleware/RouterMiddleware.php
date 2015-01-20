@@ -2,8 +2,8 @@
 namespace Conduit\Middleware;
 
 use Phly\Conduit\Middleware;
-use Psr\Http\Message\IncomingRequestInterface as Request;
-use Psr\Http\Message\OutgoingResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\ResponseInterface;
 use Aura\Router\Router;
 use Aura\Dispatcher\Dispatcher;
 
@@ -19,10 +19,9 @@ class RouterMiddleware
         $this->dispatcher = $dispatcher;
     }
 
-    public function handle(Request $request, Response $response, callable $next = null)
+    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next = null)
     {
-        // https://github.com/phly/http/issues/19
-        $path = $request->getOriginalRequest()->getUrl()->path;
+        $path = $request->getUri()->getPath();
         $route = $this->router->match($path, $request->getServerParams());
         if (! $route) {
             return $next();
@@ -30,6 +29,12 @@ class RouterMiddleware
         $params = $route->params;
         $params['request'] = $request;
         $params['response'] = $response;
-        $data = $this->dispatcher->__invoke($params);
+        $result = $this->dispatcher->__invoke($params);
+        if ($result instanceof ResponseInterface) {
+            $response = $result;
+        } else {
+            $response = $response->write($result);
+        }
+        return $response;
     }
 }

@@ -9,6 +9,7 @@ class Common extends Config
     {
         $di->set('dispatcher', $di->lazyNew('Aura\Dispatcher\Dispatcher'));
         $di->set('router', $di->lazyNew('Aura\Router\Router'));
+        $di->set('accept', $di->lazyNew('Aura\Accept\Accept'));
         $di->params['Aura\Dispatcher\Dispatcher'] = array(
             'objects' => array(),
             'object_param' => 'controller',
@@ -61,7 +62,15 @@ class Common extends Config
             'dispatcher' => $di->lazyGet('dispatcher'),
         );
 
+        // Negotiation middleware
+        $di->params['Conduit\Middleware\NegotiationMiddleware'] = array(
+            'accept' => $di->lazyGet('accept'),
+        );
+
         $di->set('auth_middleware', $di->lazyNew('Conduit\Middleware\AuthenticationMiddleware'));
+        $di->set('router_middleware', $di->lazyNew('Conduit\Middleware\RouterMiddleware'));
+        $di->set('negotiation_middleware', $di->lazyNew('Conduit\Middleware\NegotiationMiddleware'));
+
     }
 
     public function modify(Container $di)

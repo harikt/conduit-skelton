@@ -4,8 +4,8 @@ namespace Conduit\Middleware;
 use Aura\Auth\Auth;
 use Aura\Auth\Service\ResumeService;
 use Phly\Conduit\Middleware as BaseMiddleware;
-use Psr\Http\Message\IncomingRequestInterface as Request;
-use Psr\Http\Message\OutgoingResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\ResponseInterface;
 
 class AuthenticationMiddleware extends BaseMiddleware
 {
@@ -18,13 +18,14 @@ class AuthenticationMiddleware extends BaseMiddleware
         $this->auth = $auth;
     }
 
-    public function __invoke(Request $request, Response $response, callable $next = null)
+    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next = null)
     {
         if ($this->auth->isValid()) {
-            $next();
-        } else {
-            $response->setStatus(401);
-            $response->setHeader('Location', '/login');
+            return $next();
         }
+        $response = $response
+            ->withStatus(401)
+            ->withHeader('Location', '/login');
+        return $response;
     }
 }
