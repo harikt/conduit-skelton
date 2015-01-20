@@ -1,4 +1,20 @@
 {
+    "name":"harikt/conduit-skelton",
+    "description": "Conduit skelton with router middleware, authentication middleware, negotiation middleware.",
+    "keywords": [
+        "skelton",
+        "middleware",
+        "router",
+        "authentication"
+    ],
+    "homepage": "https://github.com/harikt/conduit-skelton",
+    "license": "BSD-2-Clause",
+    "authors": [
+        {
+            "name": "Hari KT",
+            "homepage": "http://harikt.com"
+        }
+    ],
     "require": {
         "phly/conduit": "~0.10",
         "aura/router": "~2.2",
@@ -16,6 +32,11 @@
         "psr-4": {
             "": "src/",
             "Skelton\\_Config\\": "config/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
         }
     }
 }

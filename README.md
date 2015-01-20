@@ -2,13 +2,13 @@
 
 Check [conduit](https://github.com/phly/conduit) the middleware for PHP.
 
-This is pretty simple configuring some of the components of aura with conduit. Yes a [router middleware is here](src/Conduit/Middleware/RouterMiddleware.php).
+This is pretty simple configuring some of the components of aura with conduit. Currently have [negotiation middleware](src/Conduit/Middleware/NegotiationMiddleware.php), [router middleware](src/Conduit/Middleware/RouterMiddleware.php) and  [authentication middleware](src/Conduit/Middleware/AuthenticationMiddleware.php).
 
 ## Installation
 
 ```sh
-git clone https://github.com/harikt/ConduitExperiments
-cd ConduitExperiments
+git clone https://github.com/harikt/conduit-skelton
+cd conduit-skelton
 composer install
 php -S locahost:8000 web/index.php
 ```
@@ -57,7 +57,7 @@ $dispatcher->setObject('blog', function () {
 
 You can make use of closure or [dependency injection container](https://github.com/auraphp/Aura.Di).
 
-## Added an authentication middleware
+## Configuring authentication middleware
 
 Try `http://localhost:8000/admin` . If you are not logged in it will redirect you to `http://localhost:8000/login` page.
 
@@ -77,9 +77,5 @@ CREATE TABLE `users` (
 Environmental variables are used with the help of [vlucas/phpdotenv](https://github.com/vlucas/phpdotenv). Rename `env_dist` to `.env` and change database name, username and password according to yours.
 
 Read how to use [authentication as standalone](http://securepasswords.info/aura-for-php/)
-
-## Known issue
-
-A small [patch needed as reported over](https://github.com/phly/http/issues/19)
 
 Play and enjoy!
