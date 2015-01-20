@@ -42,8 +42,7 @@ Time to configure your controller according to the route.
 <?php
 // config/controllers.php
 $dispatcher->setObject('homepage', function ($response) {
-    $response->getBody()->write("<p>Home page in html. Please <a href=\"blog\">Browse</a> and <a href=\"blog/12\">view post</a></p>")
-    return $response->withHeader('Content-Type', 'text/html');
+    return $response->getBody()->write("<p>Home page in html. Please <a href=\"blog\">Browse</a> and <a href=\"blog/12\">view post</a></p>")->withHeader('Content-Type', 'text/html');
 });
 
 $dispatcher->setObject('blog', $di->lazyNew('Controller\Blog'));
