@@ -8,7 +8,6 @@ use Aura\Auth\Service\LoginService;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
-
 class Login
 {
     private $auth;
@@ -26,11 +25,10 @@ class Login
 
     public function get(ResponseInterface $response)
     {
-        $response->withHeader('Content-Type', 'text/html')
-            ->write($this->twig->render('login.html'));
+        return $this->twig->render('login.html');
     }
 
-    public function post(ServerRequestInterface $request,ResponseInterface $response)
+    public function post(ServerRequestInterface $request, ResponseInterface $response)
     {
         $data = $request->getBodyParams();
         $this->login_service->login($this->auth, array(
@@ -38,12 +36,11 @@ class Login
             'password' => $data['password'],
         ));
         if ($this->auth->isValid()) {
-            $response
+            $response = $response
                 ->withStatus(302)
-                ->withHeader('Location', '/login');
-        } else {
-            $this->get($response);
+                ->withHeader('Location', '/admin/');
+            return $response;
         }
-        return $response;
+        return $this->get($response);
     }
 }

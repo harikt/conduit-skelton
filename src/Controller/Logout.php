@@ -4,7 +4,7 @@ namespace Controller;
 use Aura\Auth\Auth;
 use Aura\Auth\Service\ResumeService;
 use Aura\Auth\Service\LogoutService;
-use Psr\Http\Message\OutgoingResponseInterface as Response;
+use Psr\Http\Message\ResponseInterface;
 
 class Logout
 {
@@ -19,9 +19,10 @@ class Logout
         $this->logout_service = $logout_service;
     }
 
-    public function __invoke(Response $response)
+    public function __invoke(ResponseInterface $response)
     {
         $this->logout_service->logout($this->auth);
-        $response->withHeader('Location', '/login');
+        $response = $response->withHeader('Location', '/login/');
+        return $response;
     }
 }

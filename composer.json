@@ -1,6 +1,6 @@
 {
     "require": {
-        "phly/conduit": "0.9.*",
+        "phly/conduit": "~0.10",
         "aura/router": "~2.2",
         "aura/dispatcher": "~2.0",
         "aura/di": "~2.0",

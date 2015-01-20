@@ -29,10 +29,12 @@ class RouterMiddleware
         $params = $route->params;
         $params['request'] = $request;
         $params['response'] = $response;
-        $newresponse = $this->dispatcher->__invoke($params);
-        if ($newresponse instanceof ResponseInterface) {
-            $response = $newresponse;
+        $result = $this->dispatcher->__invoke($params);
+        if ($result instanceof ResponseInterface) {
+            $response = $result;
+        } else {
+            $response = $response->write($result);
         }
-        return $next($request, $response);
+        return $response;
     }
 }
