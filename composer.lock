@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "037f2c6a4399089d6d2a49f468f1d3f6",
+    "hash": "2e6c6e5cf6d94344880f04c47b9cdc77",
     "packages": [
         {
             "name": "aura/auth",
@@ -548,16 +548,16 @@
         },
         {
             "name": "phly/http",
-            "version": "dev-url",
+            "version": "0.7.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/harikt/phly-http.git",
-                "reference": "78d2602c12c3444d3c66ec6b8908ed4c9d23b0ff"
+                "url": "https://github.com/phly/http.git",
+                "reference": "9518a83f348a95081fa030e3e0d2d0e5f78b0226"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harikt/phly-http/zipball/78d2602c12c3444d3c66ec6b8908ed4c9d23b0ff",
-                "reference": "78d2602c12c3444d3c66ec6b8908ed4c9d23b0ff",
+                "url": "https://api.github.com/repos/phly/http/zipball/9518a83f348a95081fa030e3e0d2d0e5f78b0226",
+                "reference": "9518a83f348a95081fa030e3e0d2d0e5f78b0226",
                 "shasum": ""
             },
             "require": {
@@ -580,14 +580,7 @@
                     "Phly\\Http\\": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "PhlyTest\\Http\\": "test/"
-                },
-                "files": [
-                    "test/TestAsset/Functions.php"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-2-Clause"
             ],
@@ -603,11 +596,7 @@
             "keywords": [
                 "http"
             ],
-            "support": {
-                "issues": "https://github.com/phly/http/issues",
-                "source": "https://github.com/phly/http"
-            },
-            "time": "2015-01-16 14:41:07"
+            "time": "2015-01-18 23:09:37"
         },
         {
             "name": "psr/http-message",
@@ -806,17 +795,9 @@
         }
     ],
     "packages-dev": [],
-    "aliases": [
-        {
-            "alias": "0.7.2",
-            "alias_normalized": "0.7.2.0",
-            "version": "dev-url",
-            "package": "phly/http"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "phly/http": 20,
         "aura/auth": 20,
         "aura/session": 20,
         "foa/auth-session-bundle": 20,
