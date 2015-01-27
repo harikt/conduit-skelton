@@ -21,8 +21,9 @@ class RouterMiddleware implements MiddlewareInterface
 
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next = null)
     {
-        $path = $request->getUri()->getPath();
-        $route = $this->router->match($path, $request->getServerParams());
+        $server = $request->getServerParams();
+        $path = parse_url($server['REQUEST_URI'], PHP_URL_PATH);
+        $route = $this->router->match($path, $server);
         if (! $route) {
             return $next($request, $response);
         }

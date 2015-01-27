@@ -20,6 +20,7 @@ Configure your routes.
 ```php
 <?php
 // config/routes.php
+$router = $di->get('router');
 $router->add('home', '/')
     ->addValues(array('controller' => 'homepage'));
 
@@ -41,6 +42,7 @@ Time to configure your controller according to the route.
 ```php
 <?php
 // config/controllers.php
+$dispatcher = $di->get('dispatcher');
 $dispatcher->setObject('homepage', function ($response) {
     return $response->getBody()->write("<p>Home page in html. Please <a href=\"blog\">Browse</a> and <a href=\"blog/12\">view post</a></p>")->withHeader('Content-Type', 'text/html');
 });
