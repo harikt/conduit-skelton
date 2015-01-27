@@ -1,11 +1,12 @@
 <?php
 namespace Conduit\Middleware;
 
+use Phly\Conduit\MiddlewareInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Aura\Accept\Accept;
 
-class NegotiationMiddleware
+class NegotiationMiddleware implements MiddlewareInterface
 {
     private $accept;
 

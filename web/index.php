@@ -1,6 +1,6 @@
 <?php
 use Aura\Di\ContainerBuilder;
-use Phly\Conduit\Middleware;
+use Phly\Conduit\MiddlewarePipe;
 use Phly\Conduit\FinalHandler;
 use Phly\Conduit\Http\Request as RequestDecorator;
 use Phly\Conduit\Http\Response as ResponseDecorator;
@@ -36,7 +36,7 @@ $di = $container_builder->newInstance(
 require dirname(__DIR__) . '/config/routes.php';
 require dirname(__DIR__) . '/config/controllers.php';
 
-$app = new Middleware();
+$app = new MiddlewarePipe();
 $app->pipe('/admin', $di->get('auth_middleware'));
 $app->pipe('/blog/edit', $di->get('auth_middleware'));
 $app->pipe('/blog/delete', $di->get('auth_middleware'));
