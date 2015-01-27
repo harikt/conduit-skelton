@@ -3,17 +3,16 @@ namespace Conduit\Middleware;
 
 use Aura\Auth\Auth;
 use Aura\Auth\Service\ResumeService;
-use Phly\Conduit\Middleware as BaseMiddleware;
+use Phly\Conduit\MiddlewareInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
-class AuthenticationMiddleware extends BaseMiddleware
+class AuthenticationMiddleware implements MiddlewareInterface
 {
     private $auth;
 
     public function __construct(Auth $auth, ResumeService $resume_service)
     {
-        parent::__construct();
         $resume_service->resume($auth);
         $this->auth = $auth;
     }
@@ -21,11 +20,10 @@ class AuthenticationMiddleware extends BaseMiddleware
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next = null)
     {
         if ($this->auth->isValid()) {
-            return $next();
+            return $next($request, $response);
         }
-        $response = $response
+        return $response
             ->withStatus(401)
             ->withHeader('Location', '/login');
-        return $response;
     }
 }

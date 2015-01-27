@@ -1,13 +1,13 @@
 <?php
 namespace Conduit\Middleware;
 
-use Phly\Conduit\Middleware;
+use Phly\Conduit\MiddlewareInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Aura\Router\Router;
 use Aura\Dispatcher\Dispatcher;
 
-class RouterMiddleware
+class RouterMiddleware implements MiddlewareInterface
 {
     private $router;
 
@@ -24,16 +24,17 @@ class RouterMiddleware
         $path = $request->getUri()->getPath();
         $route = $this->router->match($path, $request->getServerParams());
         if (! $route) {
-            return $next();
+            return $next($request, $response);
         }
         $params = $route->params;
         $params['request'] = $request;
         $params['response'] = $response;
         $result = $this->dispatcher->__invoke($params);
         if ($result instanceof ResponseInterface) {
-            $response = $result;
-        } else {
-            $response = $response->write($result);
+            return $result;
+        }
+        if (is_string($result)) {
+            return $response->write($result);
         }
         return $response;
     }
