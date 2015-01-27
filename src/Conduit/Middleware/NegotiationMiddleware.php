@@ -28,6 +28,6 @@ class NegotiationMiddleware implements MiddlewareInterface
         if ($media) {
             $response = $response->withHeader('Content-Type', $media->getValue());
         }
-        $next($request, $response);
+        return $next($request, $response);
     }
 }

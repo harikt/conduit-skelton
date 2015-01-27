@@ -31,9 +31,10 @@ class RouterMiddleware implements MiddlewareInterface
         $params['response'] = $response;
         $result = $this->dispatcher->__invoke($params);
         if ($result instanceof ResponseInterface) {
-            $response = $result;
-        } else {
-            $response = $response->write($result);
+            return $result;
+        }
+        if (is_string($result)) {
+            return $response->write($result);
         }
         return $response;
     }

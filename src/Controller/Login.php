@@ -36,10 +36,9 @@ class Login
             'password' => $data['password'],
         ));
         if ($this->auth->isValid()) {
-            $response = $response
+            return $response
                 ->withStatus(302)
                 ->withHeader('Location', '/admin');
-            return $response;
         }
         return $this->get($response);
     }
