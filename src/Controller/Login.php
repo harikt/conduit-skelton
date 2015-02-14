@@ -1,45 +1,41 @@
 <?php
 namespace Controller;
 
-use Twig_Environment;
-use Aura\Auth\Auth;
-use Aura\Auth\Service\ResumeService;
-use Aura\Auth\Service\LoginService;
+use Auth\PdoAdapter;
+use PDO;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use Twig_Environment;
+use Zend\Authentication\AuthenticationService;
+use Zend\Authentication\Result;
 
 class Login
 {
     private $auth;
 
-    private $login_service;
+    private $pdo;
 
     private $twig;
 
-    public function __construct(Twig_Environment $twig, Auth $auth, LoginService $login_service)
+    public function __construct(Twig_Environment $twig, AuthenticationService $auth, PDO $pdo)
     {
-        $this->auth = $auth;
-        $this->login_service = $login_service;
         $this->twig = $twig;
-    }
-
-    public function get(ResponseInterface $response)
-    {
-        return $this->twig->render('login.html');
+        $this->auth = $auth;
+        $this->pdo  = $pdo;
     }
 
     public function post(ServerRequestInterface $request, ResponseInterface $response)
     {
         $data = $request->getBodyParams();
-        $this->login_service->login($this->auth, array(
-            'username' => $data['username'],
-            'password' => $data['password'],
-        ));
-        if ($this->auth->isValid()) {
+        $adapter = new PdoAdapter($this->pdo, 'users', 'username', 'password');
+        $adapter->setCredential($data['password'])
+            ->setIdentity($data['username']);
+        $result = $this->auth->authenticate($adapter);
+        if ($result->getCode() === Result::SUCCESS) {
             return $response
                 ->withStatus(302)
                 ->withHeader('Location', '/admin');
         }
-        return $this->get($response);
+        return $this->twig->render('login.html');
     }
 }

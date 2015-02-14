@@ -22,11 +22,10 @@
         "aura/di": "~2.0",
         "vlucas/phpdotenv": "~1.1",
         "twig/twig": "~1.0",
-        "aura/auth": "2.0.*@dev",
-        "aura/session": "2.0.*@dev",
-        "foa/auth-session-bundle": "0.1.*@dev",
-        "aura/filter": "2.0.*@dev",
-        "aura/accept": "~2.0"
+        "aura/accept": "~2.0",
+        "zendframework/zend-authentication": "~2.3",
+        "zendframework/zend-session": "~2.3",
+        "aura/filter": "2.0.*@dev"
     },
     "autoload": {
         "psr-4": {

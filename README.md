@@ -77,6 +77,13 @@ CREATE TABLE `users` (
 
 Environmental variables are used with the help of [vlucas/phpdotenv](https://github.com/vlucas/phpdotenv). Rename `env_dist` to `.env` and change database name, username and password according to yours.
 
-Read how to use [authentication as standalone](http://securepasswords.info/aura-for-php/)
-
 Play and enjoy!
+
+## Thanks
+
+* [Aura](https://github.com/auraphp)
+* [Jeremy Kendall](http://github.com/jeremykendall/slim-auth)
+* [Matthew Weier O'Phinney](https://github.com/weierophinney)
+* [Paul M Jones](https://github.com/pmjones)
+* [Zend framework](https://github.com/zendframework/zf2/)
+
