@@ -20,8 +20,10 @@ $router->add('blog.view', '/blog/view/{id}')
 
 $router->addGet('login', '/login')
     ->addValues(array(
-        'controller' => 'login',
-        'action' => 'get'
+        'controller' => function () use ($di) {
+            $twig = $di->get('twig');
+            return $twig->render('login.html');
+        }
     ))
 ;
 

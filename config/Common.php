@@ -15,14 +15,6 @@ class Common extends Config
             'object_param' => 'controller',
             'method_param' => 'action',
         );
-        $di->params['Aura\Auth\Verifier\PasswordVerifier'] = array(
-            'algo' => PASSWORD_DEFAULT,
-        );
-
-        // Logout controller
-        $di->params['Controller\Logout']['logout_service'] = $di->lazyGet('aura/auth:logout_service');
-        $di->params['Controller\Logout']['resume_service'] = $di->lazyGet('aura/auth:resume_service');
-        $di->params['Controller\Logout']['auth'] = $di->lazyGet('aura/auth:auth');
 
         $di->params['Aura\Auth\Adapter\PdoAdapter']['pdo'] = $di->lazyGet('db');
         $di->set('aura/auth:adapter', $di->lazyNew('Aura\Auth\Adapter\PdoAdapter'));
@@ -35,6 +27,12 @@ class Common extends Config
         );
         // Login controller
         $di->params['Controller\Login']['twig'] = $di->lazyGet('twig');
+        $di->params['Controller\Login']['pdo'] = $di->lazyGet('db');
+        $di->params['Controller\Login']['auth'] = $di->lazyGet('authentication_service');
+
+        $di->params['Controller\Logout']['auth'] = $di->lazyGet('authentication_service');
+
+        $di->set('authentication_service', $di->lazyNew('Zend\Authentication\AuthenticationService'));
 
         // Blog controller
         $di->params['Controller\Blog']['twig'] = $di->lazyGet('twig');
@@ -52,8 +50,7 @@ class Common extends Config
 
         // Authentication middleware
         $di->params['Conduit\Middleware\AuthenticationMiddleware'] = array(
-            'auth' => $di->lazyGet('aura/auth:auth'),
-            'resume_service' => $di->lazyGet('aura/auth:resume_service'),
+            'auth' => $di->lazyGet('authentication_service'),
         );
 
         // Router middleware

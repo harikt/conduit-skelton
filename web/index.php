@@ -18,10 +18,7 @@ $services = array();
 // config classes to call define() and modify() on
 $config_classes = array(
     'Aura\Router\_Config\Common',
-    'Aura\Auth\_Config\Common',
-    'Aura\Session\_Config\Common',
     'Aura\Accept\_Config\Common',
-    'FOA\Auth_Session_Bundle\_Config\Common',
     'Skelton\_Config\Common'
 );
 
