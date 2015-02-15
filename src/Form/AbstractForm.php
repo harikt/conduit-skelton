@@ -1,33 +1,29 @@
 <?php
 namespace Form;
 
-use Aura\Filter\FilterFactory;
-use Aura\Filter\Filter;
+use Zend\InputFilter\InputFilter;
 
 abstract class AbstractForm
 {
-    protected $filter;
+    protected $inputFilter;
 
-    public function __construct(Filter $filter = null)
+    public function __construct()
     {
-        if (! $filter) {
-            $filter_factory = new FilterFactory();
-            $filter = $filter_factory->newFilter();
-        }
-        $this->filter = $filter;
-
+        $this->inputFilter = new InputFilter();
         $this->init();
     }
 
     abstract protected function init();
 
-    public function isValid($subject)
+    public function isValid(array $data)
     {
-        return $this->filter->apply($subject);
+        return $this->inputFilter
+            ->setData($data)
+            ->isValid();
     }
 
-    public function getFilter()
+    public function getInputFilter()
     {
-        return $this->filter;
+        return $this->inputFilter;
     }
 }

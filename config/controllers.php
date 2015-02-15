@@ -30,9 +30,9 @@ $dispatcher->setObject('contact.post', function ($request, $response) use ($di) 
         return $response
             ->withStatus(302)
             ->withHeader('Location', '/thankyou');
-    } else {
-        return $twig->render('contact.html', array('filter' => $contact_form->getFilter(), 'contact' => $subject));
     }
+
+    return $twig->render('contact.html', array('filter' => $contact_form->getInputFilter(), 'contact' => $subject));
 });
 
 $dispatcher->setObject('thankyou', function () use ($di) {

@@ -25,7 +25,8 @@
         "aura/accept": "~2.0",
         "zendframework/zend-authentication": "~2.3",
         "zendframework/zend-session": "~2.3",
-        "aura/filter": "2.0.*@dev"
+        "zendframework/zend-inputfilter": "~2.3",
+        "zendframework/zend-servicemanager": "~2.3"
     },
     "autoload": {
         "psr-4": {
