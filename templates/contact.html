@@ -7,10 +7,10 @@ Contact me
     <div class="form-group">
         <label for="name">Name</label>
         <input type="text" name="contact[name]" id="name" value="{{ contact.name }}" />
-        {% if filter.messages['name'] %}
+        {% if filter.getMessages()['name'] %}
         <div class="error">
             <ul>
-            {% for error in filter.messages['name'] %}
+            {% for error in filter.getMessages()['name'] %}
                 <li>{{ error }}</li>
             {% endfor %}
             </ul>
@@ -20,10 +20,10 @@ Contact me
     <div class="form-group">
         <label for="email">Email</label>
         <input type="email" name="contact[email]" id="email" value="{{ contact.email }}" />
-        {% if filter.messages['email'] %}
+        {% if filter.getMessages()['email'] %}
         <div class="error">
             <ul>
-            {% for error in filter.messages['email'] %}
+            {% for error in filter.getMessages()['email'] %}
                 <li>{{ error }}</li>
             {% endfor %}
             </ul>
@@ -33,10 +33,10 @@ Contact me
     <div class="form-group">
         <label for="subject">Subject</label>
         <input type="subject" name="contact[subject]" id="subject" value="{{ contact.subject }}" />
-        {% if filter.messages['subject'] %}
+        {% if filter.getMessages()['subject'] %}
         <div class="error">
             <ul>
-            {% for error in filter.messages['subject'] %}
+            {% for error in filter.getMessages()['subject'] %}
                 <li>{{ error }}</li>
             {% endfor %}
             </ul>
@@ -46,10 +46,10 @@ Contact me
     <div class="form-group">
         <label for="message">Message</label>
         <textarea name="contact[message]" id="message" rows="10" cols="50" >{{ contact.message }}</textarea>
-        {% if filter.messages['name'] %}
+        {% if filter.getMessages()['message'] %}
         <div class="error">
             <ul>
-            {% for error in filter.messages['message'] %}
+            {% for error in filter.getMessages()['message'] %}
                 <li>{{ error }}</li>
             {% endfor %}
             </ul>
