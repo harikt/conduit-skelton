@@ -26,7 +26,7 @@ class Login
 
     public function post(ServerRequestInterface $request, ResponseInterface $response)
     {
-        $data = $request->getBodyParams();
+        $data = $request->getParsedBody();
         $adapter = new PdoAdapter($this->pdo, 'users', 'username', 'password');
         $adapter->setCredential($data['password'])
             ->setIdentity($data['username']);
