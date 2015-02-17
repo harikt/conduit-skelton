@@ -22,7 +22,7 @@ $dispatcher->setObject('contact', function ($response) use ($di) {
 });
 
 $dispatcher->setObject('contact.post', function ($request, $response) use ($di) {
-    $post = $request->getBodyParams();
+    $post = $request->getParsedBody();
     $subject = $post['contact'];
     $contact_form = new \Form\ContactForm();
     $twig = $di->get('twig');
