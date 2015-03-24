@@ -28,7 +28,9 @@ class ApplicationMiddleware implements MiddlewareInterface
             return $next($request, $response);
         }
         $params = $route->params;
-        if (is_string($params['controller'])) {
+        if (is_string($params['controller']) && 
+            ! $this->dispatcher->hasObject($params['controller'])
+        ) {
             // create the controller object
             $params['controller'] = $this->container->newInstance($params['controller']);
         }
