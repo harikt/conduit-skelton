@@ -6,31 +6,35 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Aura\Router\Router;
 use Aura\Dispatcher\Dispatcher;
+use Aura\Di\Container;
 
-class RouterMiddleware implements MiddlewareInterface
+class ApplicationMiddleware implements MiddlewareInterface
 {
-    private $router;
+    private $container;
 
-    private $dispatcher;
-
-    public function __construct(Router $router, Dispatcher $dispatcher)
+    public function __construct(Container $container)
     {
-        $this->router = $router;
-        $this->dispatcher = $dispatcher;
+        $this->container = $container;
     }
 
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next = null)
     {
+        $router = $this->container->get('router');
+        $dispatcher = $this->container->get('dispatcher');
         $server = $request->getServerParams();
         $path = parse_url($server['REQUEST_URI'], PHP_URL_PATH);
-        $route = $this->router->match($path, $server);
+        $route = $router->match($path, $server);
         if (! $route) {
             return $next($request, $response);
         }
         $params = $route->params;
+        if (is_string($params['controller'])) {
+            // create the controller object
+            $params['controller'] = $this->container->newInstance($params['controller']);
+        }
         $params['request'] = $request;
         $params['response'] = $response;
-        $result = $this->dispatcher->__invoke($params);
+        $result = $dispatcher->__invoke($params);
         if ($result instanceof ResponseInterface) {
             return $result;
         }

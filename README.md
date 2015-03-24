@@ -22,41 +22,25 @@ Configure your routes.
 // config/routes.php
 $router = $di->get('router');
 $router->add('home', '/')
-    ->addValues(array('controller' => 'homepage'));
+    ->addValues(array('controller' => function ($response) {
+            return $response->getBody()->write("<p>Home page in html. Please <a href=\"blog\">Browse</a> and <a href=\"blog/12\">view post</a></p>")->withHeader('Content-Type', 'text/html');
+        }
+    ));
 
 $router->add('blog.browse', '/blog')
     ->addValues(array(
-        'controller' => 'blog',
+        'controller' => 'Controller\Blog',
         'action' => 'browse'
     ));
 
 $router->add('blog.view', '/blog/{id}')
     ->addValues(array(
-        'controller' => 'blog',
+        'controller' => 'Controller\Blog',
         'action' => 'view'
     ));
 ```
 
-Time to configure your controller according to the route.
-
-```php
-<?php
-// config/controllers.php
-$dispatcher = $di->get('dispatcher');
-$dispatcher->setObject('homepage', function ($response) {
-    return $response->getBody()->write("<p>Home page in html. Please <a href=\"blog\">Browse</a> and <a href=\"blog/12\">view post</a></p>")->withHeader('Content-Type', 'text/html');
-});
-
-$dispatcher->setObject('blog', $di->lazyNew('Controller\Blog'));
-/*
-// or without a DI container as
-$dispatcher->setObject('blog', function () {
-    return new Controller\Blog();
-});
-*/
-```
-
-You can make use of closure or [dependency injection container](https://github.com/auraphp/Aura.Di).
+You can make use of closure or even pass the class name.
 
 ## Configuring authentication middleware
 

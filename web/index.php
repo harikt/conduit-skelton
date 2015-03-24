@@ -7,10 +7,14 @@ use Phly\Conduit\Http\Response as ResponseDecorator;
 use Phly\Http\Response;
 use Phly\Http\Server;
 use Phly\Http\ServerRequestFactory;
+use Conduit\Middleware\ApplicationMiddleware;
 
 require dirname(__DIR__) . '/vendor/autoload.php';
 
-Dotenv::load(dirname(__DIR__));
+try {
+    Dotenv::load(dirname(__DIR__));
+} catch (Exception $e) {
+}
 
 // pre-existing service objects as ['service_name' => $object_instance]
 $services = array();
@@ -31,16 +35,13 @@ $di = $container_builder->newInstance(
 );
 
 require dirname(__DIR__) . '/config/routes.php';
-require dirname(__DIR__) . '/config/controllers.php';
 
 $app = new MiddlewarePipe();
 $app->pipe('/admin', $di->get('auth_middleware'));
 $app->pipe('/blog/edit', $di->get('auth_middleware'));
 $app->pipe('/blog/delete', $di->get('auth_middleware'));
 $app->pipe($di->get('negotiation_middleware'));
-$app->pipe($di->get('router_middleware'));
-// $server = Server::createServer($app, $_SERVER, $_GET, $_POST, $_COOKIE, $_FILES);
-// $server->listen();
+$app->pipe(new ApplicationMiddleware($di));
 $request  = new RequestDecorator(ServerRequestFactory::fromGlobals(
     $_SERVER,
     $_GET,
