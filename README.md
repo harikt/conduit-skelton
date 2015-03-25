@@ -29,14 +29,50 @@ $router->add('home', '/')
 
 // or
 
-$router->add('blog.browse', '/blog')
+$router->add('greet', '/greet')
     ->addValues(array(
-        'controller' => 'Controller\Blog',
-        'action' => 'browse'
+        'controller' => 'Controller\Greet',
+        'action' => 'hello'
     ));
 ```
 
-You can make use of closure or even pass the class name.
+```php
+namespace Controller;
+
+use Psr\Http\Message\ResponseInterface;
+use Response\Payload;
+
+class Blog
+{
+    public function hello()
+    {
+        $available = array(
+            'text/html' => '.html',
+            'application/json' => '.json',
+        );
+        // $data, $view, $layout, $available
+        return new Payload(array('name' => 'Hari KT'), 'greet', null, $available);
+    }
+
+    public function returnString()
+    {
+        return "Hello World";
+    }
+
+    public function returnResponse(ResponseInterface $response)
+    {
+        return $response->withStatus(200)
+                    ->withHeader('Content-Type', 'text/html')
+                    ->write("returns response");
+    }
+}
+```
+
+## Some conventions
+
+Your view name expected is `greet.html.php`, `greet.json.php`, `greet.html.twig`, `greet.json.twig` formats.
+
+Same for the layouts.
 
 ## Configuring authentication middleware
 
