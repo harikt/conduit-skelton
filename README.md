@@ -2,7 +2,7 @@
 
 Check [conduit](https://github.com/phly/conduit) the middleware for PHP.
 
-This is pretty simple configuring some of the components of aura with conduit. Currently have [negotiation middleware](src/Conduit/Middleware/NegotiationMiddleware.php), [router middleware](src/Conduit/Middleware/RouterMiddleware.php) and  [authentication middleware](src/Conduit/Middleware/AuthenticationMiddleware.php).
+This is pretty simple configuring some of the components of aura with conduit. Currently have [application middleware](src/Conduit/Middleware/ApplicationMiddleware.php) and  [authentication middleware](src/Conduit/Middleware/AuthenticationMiddleware.php).
 
 ## Installation
 
@@ -27,16 +27,12 @@ $router->add('home', '/')
         }
     ));
 
+// or
+
 $router->add('blog.browse', '/blog')
     ->addValues(array(
         'controller' => 'Controller\Blog',
         'action' => 'browse'
-    ));
-
-$router->add('blog.view', '/blog/{id}')
-    ->addValues(array(
-        'controller' => 'Controller\Blog',
-        'action' => 'view'
     ));
 ```
 
