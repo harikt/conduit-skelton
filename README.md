@@ -10,7 +10,7 @@ This is pretty simple configuring some of the components of aura with conduit. C
 git clone https://github.com/harikt/conduit-skelton
 cd conduit-skelton
 composer install
-php -S locahost:8000 web/index.php
+php -S localhost:8000 web/index.php
 ```
 
 ## Usage
